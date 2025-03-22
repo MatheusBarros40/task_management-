@@ -8,27 +8,27 @@ const Navbar = () => {
     <nav className="bg-blue-600 text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-
           <div className="flex-shrink-0">
             <Link to="/tasks" className="text-2xl font-bold">
-              Minhas Tarefas
+              Task Manager
             </Link>
           </div>
 
           <div className="hidden md:block">
             <div className="flex space-x-4">
-            <Link
-              to="/tasks"
-              className="block px-3 py-2 rounded-md text-base font-medium hover:bg-blue-700"
-            >
-              Tarefas
-            </Link>
-            <Link
-              to="/create"
-              className="block px-3 py-2 rounded-md text-base font-medium hover:bg-blue-700"
-            >
-              Adicionar Tarefa
-            </Link>
+              <Link
+                to="/tasks"
+                className="hover:bg-blue-700 px-3 py-2 rounded-md text-sm font-medium"
+              >
+                Tarefas
+              </Link>
+              <Link
+                to="/create"
+                className="hover:bg-blue-700 px-3 py-2 rounded-md text-sm font-medium"
+              >
+                Criar Tarefa
+              </Link>
+
             </div>
           </div>
 
@@ -50,7 +50,9 @@ const Navbar = () => {
                   strokeLinejoin="round"
                   strokeWidth="2"
                   d={
-                    isOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"
+                    isOpen
+                      ? "M6 18L18 6M6 6l12 12"
+                      : "M4 6h16M4 12h16M4 18h16"
                   }
                 />
               </svg>
@@ -72,9 +74,8 @@ const Navbar = () => {
               to="/create"
               className="block px-3 py-2 rounded-md text-base font-medium hover:bg-blue-700"
             >
-              Adicionar Tarefa
+              Criar Tarefa
             </Link>
-
           </div>
         </div>
       )}

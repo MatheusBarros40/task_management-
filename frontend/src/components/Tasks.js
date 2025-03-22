@@ -62,7 +62,7 @@ const Tasks = () => {
     <div className="max-w-4xl mx-auto mt-10 p-4">
       <div className="flex justify-between items-center mb-4">
         <h2 className="text-2xl font-bold">Minhas Tarefas</h2>
-        <Link to="/create" className="bg-green-500 text-white px-4 py-2 rounded">
+        <Link to="/create" className="bg-green-700 text-slate-100 hover:bg-green-900 px-4 py-2 rounded">
           Criar Tarefa
         </Link>
       </div>
@@ -94,19 +94,19 @@ const Tasks = () => {
             <div className="flex space-x-2">
             <Link
                 to={`/edit/${task.id}`}
-                className="bg-yellow-500 text-white px-3 py-1 rounded"
+                className="bg-blue-600 text-white hover:bg-blue-700 px-3 py-1 rounded"
               >
                 Editar
               </Link>
               <button
                 onClick={() => handleComplete(task.id)}
-                className="bg-blue-500 text-white px-3 py-1 rounded"
+                className="bg-blue-600 text-white hover:bg-blue-700 px-3 py-1 rounded"
               >
                 Concluir
               </button>
               <button
                 onClick={() => handleDelete(task.id)}
-                className="bg-red-500 text-white px-3 py-1 rounded"
+                className="bg-red-600 text-white hover:bg-red-800 px-3 py-1 rounded"
               >
                 Excluir
               </button>
