@@ -37,14 +37,17 @@ O projeto implementa funcionalidades de CRUD de tarefas e autenticação JWT.
 ```
 task_management/
 ├── backend/          # Código do backend
+│   ├── config/
+│   ├── middlewares/
+│   ├── migrations/
 │   ├── models/
 │   ├── routes/
-│   ├── migrations/
 │   ├── seeders/
 │   ├── app.js
 │   └── package.json
 └── frontend/         # Código do frontend
     ├── src/
+    │   ├── public/
     │   ├── components/
     │   ├── services/
     │   ├── App.js

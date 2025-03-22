@@ -45,6 +45,7 @@ const CreateTask = () => {
           type="submit"
           className="p-2 bg-green-500 hover:bg-green-700 text-white rounded"
           disabled={loading}
+          data-cy="submit"
         >
           {loading ? 'Salvando...' : 'Criar Tarefa'}
         </button>

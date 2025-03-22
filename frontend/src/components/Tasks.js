@@ -80,7 +80,7 @@ const Tasks = () => {
           <option value="Concluído">Concluídas</option>
         </select>
       </div>
-      <ul>
+      <ul data-cy="task-list">
         {filteredTasks.map(task => (
           <li key={task.id} className="p-4 border rounded mb-2 flex justify-between items-center">
             <div>
