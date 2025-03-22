@@ -70,7 +70,7 @@ console.error('Detalhes do erro:', err.response || err);    } finally {
         ></textarea>
         <button
           type="submit"
-          className="p-2 bg-green-500 text-white rounded"
+          className="p-2 bg-green-500 hover:bg-green-700 text-white rounded"
           disabled={loading}
         >
           {loading ? 'Salvando...' : 'Salvar Alterações'}

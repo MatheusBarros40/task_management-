@@ -43,7 +43,7 @@ const CreateTask = () => {
         ></textarea>
         <button
           type="submit"
-          className="p-2 bg-green-500 text-white rounded"
+          className="p-2 bg-green-500 hover:bg-green-700 text-white rounded"
           disabled={loading}
         >
           {loading ? 'Salvando...' : 'Criar Tarefa'}
