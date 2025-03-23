@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import api from '../services/api';
+import { toast } from 'react-toastify';
+
 
 const Register = () => {
   const [name, setName] = useState('');
@@ -17,8 +19,10 @@ const Register = () => {
     try {
       await api.post('/auth/register', { name, email, password });
       navigate('/login');
+      toast.success('Usuario registrado com sucesso!🎉');      
     } catch (err) {
       setError(err.response?.data?.error || 'Erro ao fazer registro');
+      toast.warn('Erro ao fazer registro! ⚠️');
     } finally {
       setLoading(false);
     }

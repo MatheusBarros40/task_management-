@@ -10,6 +10,7 @@ O projeto implementa funcionalidades de CRUD de tarefas e autenticação JWT.
   - Express
   - Sequelize
   - MySQL
+  - GraphQL  
   - JWT para autenticação
   - Nodemon (para desenvolvimento)
 - **Frontend:**
@@ -38,6 +39,9 @@ O projeto implementa funcionalidades de CRUD de tarefas e autenticação JWT.
 task_management/
 ├── backend/          # Código do backend
 │   ├── config/
+│   ├── graphql/
+    │   ├── resolver/
+    │   ├── schema/
 │   ├── middlewares/
 │   ├── migrations/
 │   ├── models/
@@ -46,6 +50,8 @@ task_management/
 │   ├── app.js
 │   └── package.json
 └── frontend/         # Código do frontend
+    ├── cypress/
+    │   ├── e2e/
     ├── src/
     │   ├── public/
     │   ├── components/

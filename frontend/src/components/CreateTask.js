@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import api from '../services/api';
+import { toast } from 'react-toastify';
+
 
 const CreateTask = () => {
   const [title, setTitle] = useState('');
@@ -16,8 +18,10 @@ const CreateTask = () => {
     try {
       await api.post('/tasks', { title, description });
       navigate('/tasks');
+      toast.success('Tarefa criada com sucesso!🎉');
     } catch (err) {
       setError(err.response?.data?.error || 'Erro ao criar tarefa');
+      toast.error('Erro ao criar tarefa 😢');
     } finally {
       setLoading(false);
     }

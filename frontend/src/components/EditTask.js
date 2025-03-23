@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import api from '../services/api';
+import { toast } from 'react-toastify';
+
 
 const EditTask = () => {
   const { id } = useParams();
@@ -22,7 +24,7 @@ const EditTask = () => {
         setDescription(res.data.description);
       } catch (err) {
         setError(err.response?.data?.error || 'Erro ao carregar tarefa');
-        console.error(err);
+        toast.error('Erro ao carregar tarefa 😢');
       } finally {
         setLoading(false);
       }
@@ -40,12 +42,15 @@ const EditTask = () => {
 
       await api.put(`/tasks/${id}`, { title, description });
       navigate('/tasks');
+      toast.success('Tarefa atualizada com sucesso!🎉');
     } catch (err) {
       const errorMessage = err.response?.data?.error || 
       err.message || 
       'Erro desconhecido';
-setError(`Erro: ${errorMessage}`);
-console.error('Detalhes do erro:', err.response || err);    } finally {
+      setError(`Erro: ${errorMessage}`);
+      console.error('Detalhes do erro:', err.response || err);    
+      toast.error('Erro ao atualizar tarefa 😢');
+    } finally {
       setLoading(false);
     }
   };
