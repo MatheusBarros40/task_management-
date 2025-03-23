@@ -23,7 +23,6 @@ app.get('/', (req, res) => {
   res.send('API está funcionando!');
 });
 
-// Middleware de tratamento de erros
 app.use((err, req, res, next) => {
   console.error(err);
   res.status(err.status || 500).json({
@@ -32,7 +31,6 @@ app.use((err, req, res, next) => {
 });
 
 async function startApolloServer() {
-  // Cria e configura o Apollo Server com contexto para autenticação (caso necessário)
   const server = new ApolloServer({
     typeDefs: taskTypeDefs,
     resolvers: taskResolvers,

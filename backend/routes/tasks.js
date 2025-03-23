@@ -3,9 +3,8 @@ const router = express.Router();
 const Task = require('../models/task');
 const authMiddleware = require('../middlewares/authMiddleware');
 
-router.use(authMiddleware); // Protege todas as rotas abaixo
+router.use(authMiddleware); 
 
-// Criar uma nova tarefa
 router.post('/', async (req, res) => {
   try {
     const { title, description } = req.body;
@@ -16,7 +15,6 @@ router.post('/', async (req, res) => {
   }
 });
 
-// Listar todas as tarefas
 router.get('/', async (req, res) => {
   try {
     const tasks = await Task.findAll();
@@ -26,7 +24,6 @@ router.get('/', async (req, res) => {
   }
 });
 
-// Listar a  tarefa
 router.get('/:id', async (req, res) => {
   try {
     const { id } = req.params;
@@ -48,7 +45,6 @@ router.get('/:id', async (req, res) => {
   }
 });
 
-// Editar uma tarefa existente
 router.put('/:id', async (req, res) => {
   try {
     const { id } = req.params;
@@ -67,7 +63,6 @@ router.put('/:id', async (req, res) => {
   }
 });
 
-// Excluir uma tarefa
 router.delete('/:id', async (req, res) => {
   try {
     const { id } = req.params;
@@ -82,7 +77,6 @@ router.delete('/:id', async (req, res) => {
 });
 
 
-// Marcar uma tarefa como concluída
 router.patch('/:id/complete', async (req, res, next) => {
   try {
     const { id } = req.params;

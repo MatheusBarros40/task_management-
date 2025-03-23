@@ -13,7 +13,6 @@ const EditTask = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
-  // Busca os dados da tarefa para edição
   useEffect(() => {
     const fetchTask = async () => {
       setLoading(true);
