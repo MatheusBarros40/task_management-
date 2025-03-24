@@ -7,12 +7,14 @@ import CreateTask from './components/CreateTask';
 import EditTask from './components/EditTask';
 import Navbar from './components/Navbar';
 import { ToastContainer } from 'react-toastify';
+import ToastNotification from './components/ToastNotification';
 import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <Navbar />
+      <ToastNotification />
       <ToastContainer position="top-right" autoClose={3000} />
       <Routes>
         <Route path="/" element={<Login />} />

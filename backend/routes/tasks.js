@@ -1,9 +1,38 @@
 const express = require('express');
 const router = express.Router();
 const Task = require('../models/task');
+const cleanupOldTasks = require('../services/taskCleanup');
+const publishCleanupMessage = require('../services/taskQueue');
 const authMiddleware = require('../middlewares/authMiddleware');
 
+
 router.use(authMiddleware); 
+
+router.post('/cleanup', async (req, res) => {
+  try {
+    const deletedTasks = await cleanupOldTasks();
+    const fiveDaysAgo = new Date();
+    fiveDaysAgo.setDate(fiveDaysAgo.getDate() - 5);
+    const count = await cleanupOldTasks();
+
+    const oldTasks = await Task.findAll({
+      where: { 
+      createdAt: { [Op.lt]: fiveDaysAgo } 
+    }
+  });
+
+    oldTasks.forEach(task => publishCleanupMessage(task._id));
+
+    res.json({
+      message: `${count} tarefas antigas marcadas para exclusão.
+      ${oldTasks.length} tarefas antigas enviadas para exclusão.`,
+      tasks: oldTasks.map(t => t.id),
+      deleted: deletedTasks.length 
+    });
+  } catch (error) {
+    res.status(500).json({ error: 'Erro ao processar limpeza de tarefas.' });
+  }
+});
 
 router.post('/', async (req, res) => {
   try {
@@ -19,6 +48,7 @@ router.get('/', async (req, res) => {
   try {
     const tasks = await Task.findAll();
     res.json(tasks);
+
   } catch (error) {
     res.status(500).json({ error: 'Erro ao listar tarefas' });
   }

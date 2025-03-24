@@ -11,12 +11,14 @@ O projeto implementa funcionalidades de CRUD de tarefas e autenticação JWT.
   - Sequelize
   - MySQL
   - GraphQL  
+  - RabbitMQ  
   - JWT para autenticação
   - Nodemon (para desenvolvimento)
 - **Frontend:**
   - React
   - React Router
   - Tailwind CSS
+  - SocketIO  
   - Axios (para consumo da API)
 
 ## Funcionalidades
@@ -47,6 +49,7 @@ task_management/
 │   ├── models/
 │   ├── routes/
 │   ├── seeders/
+│   ├── services/
 │   ├── app.js
 │   └── package.json
 └── frontend/         # Código do frontend
@@ -77,6 +80,10 @@ task_management/
    ```bash
    npx nodemon app.js
    ```
+4. Execute o Worker Independente (Em outro Terminal):
+   ```bash
+   node services/taskWorker.js
+   ```   
    > Certifique-se de que o banco de dados MySQL está configurado corretamente e as migrations foram executadas.
 
 ### Frontend
