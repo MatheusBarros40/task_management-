@@ -38,7 +38,7 @@ const Tasks = () => {
     },
     onCompleted: () => {
       toast.success('Tarefa excluída com sucesso!');
-      refetch(); // Força a atualização da lista de tarefas
+      refetch(); 
     },
     onError: () => toast.error('Erro ao excluir tarefa!'),
   });
