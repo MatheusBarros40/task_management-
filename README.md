@@ -18,7 +18,8 @@ O projeto implementa funcionalidades de CRUD de tarefas e autenticação JWT.
   - React
   - React Router
   - Tailwind CSS
-  - SocketIO  
+  - SocketIO
+  - Cypress 
   - Axios (para consumo da API)
 
 ## Funcionalidades
