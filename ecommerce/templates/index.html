@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ecommerce Demo</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+    <script defer src="{{ url_for('static', filename='app.js') }}"></script>
+</head>
+<body>
+    <header>
+        <h1>Loja Demo</h1>
+        <nav>
+            <button id="logout">Sair</button>
+        </nav>
+    </header>
+
+    <section id="auth">
+        <h2>Login</h2>
+        <form id="login-form">
+            <input type="email" id="login-email" placeholder="Email" required>
+            <input type="password" id="login-password" placeholder="Senha" required>
+            <button type="submit">Entrar</button>
+        </form>
+
+        <h2>Registro</h2>
+        <form id="register-form">
+            <input type="email" id="register-email" placeholder="Email" required>
+            <input type="password" id="register-password" placeholder="Senha" required>
+            <button type="submit">Registrar</button>
+        </form>
+    </section>
+
+    <section id="products" class="hidden">
+        <h2>Produtos</h2>
+        <ul id="product-list"></ul>
+
+        <h3>Novo Produto</h3>
+        <form id="product-form">
+            <input type="text" id="product-name" placeholder="Nome" required>
+            <input type="number" id="product-price" placeholder="Preço" required>
+            <button type="submit">Adicionar</button>
+        </form>
+    </section>
+</body>
+</html>
