@@ -1,0 +1,20 @@
+<div class="tarefas">
+  <h1>Tarefas</h1>
+  <form (submit)="adicionar(); $event.preventDefault()">
+    <input [(ngModel)]="novaTarefa.titulo" name="titulo" placeholder="Título" required />
+    <input [(ngModel)]="novaTarefa.descricao" name="descricao" placeholder="Descrição" />
+    <button type="submit">Adicionar</button>
+  </form>
+
+  <ul>
+    <li *ngFor="let tarefa of tarefas">
+      <input [(ngModel)]="tarefa.titulo" name="titulo{{tarefa.id}}" (blur)="atualizar(tarefa)" />
+      <input [(ngModel)]="tarefa.descricao" name="descricao{{tarefa.id}}" (blur)="atualizar(tarefa)" />
+      <label>
+        <input type="checkbox" [(ngModel)]="tarefa.concluida" name="concluida{{tarefa.id}}" (change)="atualizar(tarefa)" />
+        Concluída
+      </label>
+      <button (click)="excluir(tarefa.id)">Excluir</button>
+    </li>
+  </ul>
+</div>

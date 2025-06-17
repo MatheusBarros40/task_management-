@@ -19,8 +19,9 @@ O projeto implementa funcionalidades de CRUD de tarefas e autenticação JWT.
   - React Router
   - Tailwind CSS
   - SocketIO
-  - Cypress 
+  - Cypress
   - Axios (para consumo da API)
+  - Exemplos de componentes em Angular (opcional)
 
 ## Funcionalidades
 
@@ -102,6 +103,10 @@ task_management/
    npm start
    ```
    > O aplicativo será aberto no seu navegador (geralmente na porta 3000).
+
+### Exemplo Angular
+
+No diretório `angular-view` há um exemplo simples de componentes Angular para consumir a mesma API. Para utilizá-lo em um projeto Angular existente, copie os arquivos e adicione `HttpClientModule` e `FormsModule` ao seu módulo principal.
 
 ## Link do Repositório
 
